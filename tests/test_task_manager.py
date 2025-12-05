@@ -1,4 +1,5 @@
 from lib.task_manager import *
+import pytest
 
 """
 When the user creates a new TaskManager, 
@@ -24,6 +25,16 @@ def test_adds_multiple_new_tasks_to_todo_list():
     task_manager.add_todo('Python Homework')
     task_manager.add_todo('Feed the fish')
     assert task_manager.todo_list == ['Python Homework', 'Feed the fish']
+
+"""
+If user trys to add an empty task, 
+raises a TypeError "You have not added a Task!"
+"""
+def test_empty_task_raises_error():
+    task_manager = TaskManager()
+    with pytest.raises(ValueError) as e:
+        task_manager.add_todo("")
+    assert str(e.value) == "You have not added a Task!"
 
 """
 When the user requests the list, it is presented

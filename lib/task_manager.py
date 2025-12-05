@@ -4,6 +4,9 @@ class TaskManager():
         self.todo_list = []
 
     def add_todo(self, task):
+        if task.strip() == "":
+            raise ValueError("You have not added a Task!")
+
         self.todo_list.append(task)
 
     def format_todo(self):
