@@ -47,7 +47,7 @@ def test_empty_task_raises_error():
     assert str(e.value) == "Not a valid Task!"
 
 """
-When the user requests the list, it is presented
+When the user requests the todo list, it is formatted and presented
 """
 def test_formatted_list_is_provided_to_user():
     task_manager = TaskManager()
@@ -73,5 +73,8 @@ it is added to completed list
 """
 
 def test_completed_task_is_added_to_completed_list():
-    pass
-
+    task_manager = TaskManager()
+    task_manager.add_todo('Python Homework')
+    task_manager.add_todo('Feed the fish')
+    task_manager.completed_task("Python Homework")
+    assert task_manager.completed_list == ["Python Homework"]

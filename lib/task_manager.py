@@ -2,6 +2,7 @@
 class TaskManager(): 
     def __init__(self):
         self.todo_list = []
+        self.completed_list = []
 
     def add_todo(self, task):
         if not isinstance(task, str):
@@ -11,8 +12,10 @@ class TaskManager():
 
         self.todo_list.append(task)
 
+    def completed_task(self, task):
+        self.todo_list.remove(task)
+        self.completed_list.append(task)
+
     def format_todo(self):
         return f"Tasks Still To Do: {", ".join(self.todo_list)}"
 
-    def completed_task(self, task):
-        self.todo_list.remove(task)
