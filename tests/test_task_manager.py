@@ -28,13 +28,23 @@ def test_adds_multiple_new_tasks_to_todo_list():
 
 """
 If user trys to add an empty task, 
-raises a TypeError "You have not added a Task!"
+raises a error "You have not added a Task!"
 """
 def test_empty_task_raises_error():
     task_manager = TaskManager()
     with pytest.raises(ValueError) as e:
         task_manager.add_todo("")
     assert str(e.value) == "You have not added a Task!"
+
+"""
+If user trys to add an integer, 
+raises a error "You have not added a Task!"
+"""
+def test_empty_task_raises_error():
+    task_manager = TaskManager()
+    with pytest.raises(TypeError) as e:
+        task_manager.add_todo(1234)
+    assert str(e.value) == "Not a valid Task!"
 
 """
 When the user requests the list, it is presented

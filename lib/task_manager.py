@@ -4,6 +4,8 @@ class TaskManager():
         self.todo_list = []
 
     def add_todo(self, task):
+        if not isinstance(task, str):
+            raise TypeError("Not a valid Task!")
         if task.strip() == "":
             raise ValueError("You have not added a Task!")
 
