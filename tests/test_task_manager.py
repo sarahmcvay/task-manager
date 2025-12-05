@@ -54,3 +54,24 @@ def test_formatted_list_is_provided_to_user():
     task_manager.add_todo('Python Homework')
     task_manager.add_todo('Feed the fish')
     assert task_manager.format_todo() == "Tasks Still To Do: Python Homework, Feed the fish"
+
+"""
+When the user completes a task, 
+it is removed from the todo list
+"""
+
+def test_remove_completed_task_from_to_do():
+    task_manager = TaskManager()
+    task_manager.add_todo('Python Homework')
+    task_manager.add_todo('Feed the fish')
+    task_manager.completed_task("Python Homework")
+    assert task_manager.format_todo() == "Tasks Still To Do: Feed the fish"
+
+"""
+When the user completes a task
+it is added to completed list
+"""
+
+def test_completed_task_is_added_to_completed_list():
+    pass
+

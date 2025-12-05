@@ -13,3 +13,6 @@ class TaskManager():
 
     def format_todo(self):
         return f"Tasks Still To Do: {", ".join(self.todo_list)}"
+
+    def completed_task(self, task):
+        self.todo_list.remove(task)
